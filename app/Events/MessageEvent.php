@@ -4,22 +4,23 @@ namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class WebSocketDemoEvent implements ShouldBroadcast
+class MessageEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    public $somedata;
+    public $message;
 
     /**
      * Create a new event instance.
      */
-    public function __construct($somedata)
+    public function __construct($message)
     {
-        $this->somedata = $somedata;
+        $this->message = $message;
     }
 
     /**
@@ -30,8 +31,7 @@ class WebSocketDemoEvent implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new Channel('DemoChannel'),
+            new Channel('chat'),
         ];
-        // return new Channel('DemoChannel');
     }
 }

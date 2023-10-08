@@ -1,3 +1,5 @@
+import 'bootstrap';
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -31,7 +33,15 @@ window.Echo = new Echo({
     enabledTransports: ['ws', 'wss'],
 });
 
-window.Echo.channel('DemoChannel')
-.listen('WebSocketDemoEvent',(e)=>{
-   console.warn(e)
-})
+// window.Echo.channel('chat')
+// .listen('MessageEvent',(e)=>{
+//    this.messages.push(e.message);
+// })
+
+// window.Echo.private('chat')
+//   .listen('MessageSent', (e) => {
+//     this.messages.push({
+//       message: e.message.message,
+//       user: e.user
+//     });
+//   )}
