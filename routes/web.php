@@ -17,10 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    broadcast(new WebSocketDemoEvent('some-data'));
+    // broadcast(new WebSocketDemoEvent('some-data'));
 
     return view('welcome');
 });
+// Route::post('/broadcasting/auth', function () {
+//     // ...
+// })->middleware('auth');
 Auth::routes();
 
 Route::get('/chat', [MessageController::class, 'index'])->name('msg.index');

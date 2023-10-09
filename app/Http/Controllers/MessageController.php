@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\MessageEvent;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -15,6 +16,7 @@ class MessageController extends Controller
 
     public function index()
     {
+
 
         return view('chat');
     }
